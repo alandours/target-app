@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1150"
+   LastUpgradeVersion = "1250"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;echo &quot;.env.qa&quot; &gt; /tmp/envfile&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "37BA4E3826C58167005ED7FE"
+               BuildableName = "TargetApp-QA.app"
+               BlueprintName = "TargetApp-QA"
+               ReferencedContainer = "container:TargetApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -20,20 +43,6 @@
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
-               BuildableName = "ReactNativeBase-Develop.app"
-               BlueprintName = "ReactNativeBase-Develop"
-               ReferencedContainer = "container:ReactNativeBase.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -41,15 +50,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
-            BuildableName = "ReactNativeBase-Develop.app"
-            BlueprintName = "ReactNativeBase-Develop"
-            ReferencedContainer = "container:ReactNativeBase.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
       </Testables>
    </TestAction>
@@ -67,10 +67,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
-            BuildableName = "ReactNativeBase-Develop.app"
-            BlueprintName = "ReactNativeBase-Develop"
-            ReferencedContainer = "container:ReactNativeBase.xcodeproj">
+            BlueprintIdentifier = "37BA4E3826C58167005ED7FE"
+            BuildableName = "TargetApp-QA.app"
+            BlueprintName = "TargetApp-QA"
+            ReferencedContainer = "container:TargetApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FE002B0B22EA13BF0027B199"
-            BuildableName = "ReactNativeBase-Develop.app"
-            BlueprintName = "ReactNativeBase-Develop"
-            ReferencedContainer = "container:ReactNativeBase.xcodeproj">
+            BlueprintIdentifier = "37BA4E3826C58167005ED7FE"
+            BuildableName = "TargetApp-QA.app"
+            BlueprintName = "TargetApp-QA"
+            ReferencedContainer = "container:TargetApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

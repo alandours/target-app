@@ -134,12 +134,12 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.reactnativebase"
+        applicationId "com.targetapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
-        resValue "string", "build_config_package", "com.reactnativebase"
+        resValue "string", "build_config_package", "com.targetapp"
     }
     splits {
         abi {

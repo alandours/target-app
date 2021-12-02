@@ -18,14 +18,14 @@ default_platform(:android)
 skip_docs
 
 # CONFIG VARIABLES
-app_name          = 'ReactNativeBase'                 # Base application name used for .apk file
-app_id_prefix     = 'com.reactnativebase'             # Base application identifier in Play Store
+app_name          = 'TargetApp'                 # Base application name used for .apk file
+app_id_prefix     = 'com.targetapp'             # Base application identifier in Play Store
 json_key          = ENV["JSON_KEYFILE"]               # Local path to keyfile used for authenticating with Play Store
 s3_region         = ENV["AWS_REGION"]                 # AWS authentication params (for Adhoc builds) 
 s3_key            = ENV["AWS_ACCESS_KEY_ID"]          #
 s3_secret_key     = ENV["AWS_SECRET_ACCESS_KEY"]      #
 s3_bucket         = ENV["BUILD_BUCKET"]               # AWS S3 bucket and folder to upload builds to (for Adhoc builds)   
-s3_folder         = 'react-native-base'               # 
+s3_folder         = 'target-app'               # 
 slack_url         = ENV["SLACK_URL"]                  # Slack webhook url and channel name for sending notifications upon completion
 slack_channel     = ENV["SLACK_CHANNEL"]              #
 

@@ -3,8 +3,8 @@ module.exports = {
   androidPath: './android/app/build.gradle',
   iosPaths: {
     // List all envs with the paths to their respective Info.plist files
-    dev: './ios/ReactNativeBase-Develop-Info.plist',
-    staging: './ios/ReactNativeBase-Staging-Info.plist',
-    prod: './ios/ReactNativeBase/Info.plist',
+    dev: './ios/TargetApp-Develop-Info.plist',
+    staging: './ios/TargetApp-Staging-Info.plist',
+    prod: './ios/TargetApp/Info.plist',
   },
 };

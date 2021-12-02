@@ -50,7 +50,7 @@ static void InitializeFlipper(UIApplication *application) {
   #endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"ReactNativeBase"
+                                                   moduleName:@"TargetApp"
                                             initialProperties:nil];
 
   if (@available(iOS 13.0, *)) {

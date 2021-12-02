@@ -25,7 +25,7 @@ skip_docs
 
 # CONFIG VARIABLES
 # =============================
-app_name              = 'ReactNativeBase' 
+app_name              = 'TargetApp' 
 team_id               = ENV["FASTLANE_TEAM_ID"]                             # The organization's team id in the Apple Developer portal
 cert                  = ENV["APPLE_CERT"]                                   # Local path to distribution certificate file to be used for signing the build 
 key                   = ENV["APPLE_KEY"]                                    # Private key (.p12 file) used for encrypting certificate
@@ -38,7 +38,7 @@ s3_key                = ENV["AWS_ACCESS_KEY_ID"]                            # cr
 s3_secret_key         = ENV["AWS_SECRET_ACCESS_KEY"]                        #  
 s3_region             = ENV["AWS_REGION"]                                   # 
 s3_bucket             = ENV["BUILDS_BUCKET"]                                # S3 bucket and parent folder to upload to
-folder                = 'react-native-base'                                 #
+folder                = 'target-app'                                 #
 # Slack
 slack_channel         = ENV["SLACK_CHANNEL"]                                # Slack webhook url and channel name for sending notifications upon completion  
 slack_url             = ENV["SLACK_URL"]                                    #
