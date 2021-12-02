@@ -1,6 +1,6 @@
 import React from 'react';
 import { func } from 'prop-types';
-import { Button, View } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import { useStatus, LOADING } from '@rootstrap/redux-tools';
 
 import { login } from 'actions/userActions';
@@ -67,14 +67,15 @@ const LoginForm = ({ onSubmit }) => {
         {...inputProps(FIELDS.password)}
       />
       <ErrorView errors={{ error }} />
-      <View style={styles.button}>
-        <Button
-          testID="login-submit-button"
-          title={status === LOADING ? strings.COMMON.loading : strings.SIGN_IN.button}
-          onPress={handleSubmit}
-          disabled={formHasErrors}
-        />
-      </View>
+      <TouchableOpacity
+        style={styles.button}
+        testID="login-submit-button"
+        onPress={handleSubmit}
+        disabled={formHasErrors}>
+        <Text style={styles.buttonText}>
+          {status === LOADING ? strings.COMMON.loading : strings.SIGN_IN.button}
+        </Text>
+      </TouchableOpacity>
     </>
   );
 };

@@ -3,9 +3,19 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   button: {
     alignSelf: 'center',
-    borderColor: 'lightblue',
-    borderRadius: 5,
-    borderWidth: 2,
+    backgroundColor: '#000',
+    height: 37,
+    justifyContent: 'center',
+    marginBottom: 11,
+    marginTop: 8,
+    width: 114,
+  },
+  buttonText: {
+    alignSelf: 'center',
+    color: '#fff',
+    fontSize: 11,
+    letterSpacing: 1.65,
+    textTransform: 'uppercase',
   },
 });
 

@@ -9,8 +9,12 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
+    letterSpacing: 3,
+    fontWeight: '500',
     margin: 10,
+    marginBottom: 68,
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
 });
 

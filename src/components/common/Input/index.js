@@ -11,8 +11,8 @@ const Input = ({ label, value, onChangeText, error, active, touched, ...props })
   }, []);
 
   return (
-    <View>
-      {label && <Text>{label}</Text>}
+    <View style={styles.inputContainer}>
+      {label && <Text style={styles.label}>{label}</Text>}
       <View>
         <TextInput
           style={[styles.input, active && styles.inputActive]}

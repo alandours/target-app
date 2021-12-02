@@ -16,7 +16,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
-      <Text style={styles.welcome}>{strings.SIGN_IN.title}</Text>
+      <Text style={styles.welcome}>Target MVD</Text>
       <LoginForm onSubmit={loginRequest} />
       <Button testID="sign-up-button" title={strings.SIGN_UP.title} onPress={handleLogin} />
     </View>
