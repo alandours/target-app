@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ERROR } from 'constants/colors';
 
 const styles = StyleSheet.create({
   input: {
@@ -13,12 +14,6 @@ const styles = StyleSheet.create({
   inputActive: {
     borderColor: '#666666',
   },
-  button: {
-    alignSelf: 'center',
-    borderColor: 'lightblue',
-    borderRadius: 5,
-    borderWidth: 2,
-  },
   label: {
     alignSelf: 'center',
     color: '#000',
@@ -29,6 +24,15 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginBottom: 24,
+  },
+  error: {
+    alignSelf: 'center',
+    color: ERROR,
+    fontSize: 10,
+    height: 14,
+    marginTop: 2,
+    textAlign: 'center',
+    width: 222,
   },
 });
 
