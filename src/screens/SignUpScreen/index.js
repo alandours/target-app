@@ -1,9 +1,11 @@
 import React, { memo, useCallback } from 'react';
-import { Text, View, Button } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { object } from 'prop-types';
 
 import SignUpForm from 'components/SignUpForm';
+import Header from 'components/common/Header';
+import SignButton from 'components/SignButton';
 import { SIGN_UP_SCREEN } from 'constants/screens';
 import { signUp } from 'actions/userActions';
 import strings from 'localization';
@@ -15,9 +17,13 @@ const SignUpScreen = memo(({ navigation }) => {
 
   return (
     <View style={styles.container} testID={SIGN_UP_SCREEN}>
-      <Text style={styles.welcome}>{strings.SIGN_UP.title}</Text>
+      <Header />
       <SignUpForm onSubmit={signUpRequest} />
-      <Button title={strings.SIGN_IN.title} onPress={() => navigation.goBack()} />
+      <SignButton
+        testID="sign-in-button"
+        onPress={() => navigation.goBack()}
+        text={strings.SIGN_IN.title}
+      />
     </View>
   );
 });

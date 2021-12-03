@@ -20,9 +20,21 @@ export default {
 
   SIGN_UP: {
     title: 'Sign up',
+    firstName: 'Name',
     email: 'Email',
     password: 'Password',
-    passwordConfirmation: 'Password confirmation',
+    passwordPlaceholder: 'MIN. 8 CHARACTERS LONG',
+    passwordConfirmation: 'Confirm Password',
+    gender: 'Gender',
     button: 'Sign up',
+  },
+
+  GENDER: {
+    placeholder: { label: 'SELECT YOUR GENDER', value: '' },
+    items: [
+      { label: 'MALE', value: 'male' },
+      { label: 'FEMALE', value: 'female' },
+      { label: 'OTHER', value: 'other' },
+    ],
   },
 };

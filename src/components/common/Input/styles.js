@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { ERROR, BLACK, GREY, DARKGREY } from 'constants/colors';
+import { ERROR, BLACK, GREY, DARKGREY, WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
   input: {
     alignSelf: 'center',
+    backgroundColor: WHITE,
     height: 37,
     borderColor: GREY,
     borderWidth: 1,

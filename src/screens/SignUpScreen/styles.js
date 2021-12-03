@@ -8,11 +8,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 50,
   },
-  welcome: {
-    fontSize: 20,
-    margin: 10,
-    textAlign: 'center',
-  },
 });
 
 export default styles;
