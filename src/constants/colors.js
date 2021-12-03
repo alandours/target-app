@@ -1,2 +1,2 @@
 export const WHITE = '#FFFFFF';
-export const ERROR = '#FF5252';
+export const ERROR = '#E02424';

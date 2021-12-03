@@ -4,3 +4,5 @@ export const SIGN_UP_SCREEN = 'SignUpScreen';
 
 export const APP_STACK = 'AppStack';
 export const AUTH_STACK = 'AuthStack';
+
+export const APP_NAME = 'Target MVD';

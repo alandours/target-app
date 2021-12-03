@@ -7,13 +7,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 50,
   },
-  welcome: {
-    fontSize: 20,
-    letterSpacing: 3,
-    fontWeight: '500',
-    margin: 10,
-    marginBottom: 68,
-    textAlign: 'center',
+  forgotPasswordButton: {
+    alignSelf: 'center',
+    color: '#000',
+    fontSize: 10.5,
+    marginBottom: 22,
+  },
+  facebookLoginButton: {
+    alignSelf: 'center',
+    color: '#000',
+    fontSize: 12,
+    letterSpacing: 2.4,
+    marginBottom: 41,
     textTransform: 'uppercase',
   },
 });
