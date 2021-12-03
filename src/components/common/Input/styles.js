@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
   inputActive: {
     borderColor: '#666666',
   },
+  inputError: {
+    borderColor: ERROR,
+  },
   label: {
     alignSelf: 'center',
     color: '#000',

@@ -15,7 +15,11 @@ const Input = ({ label, value, onChangeText, error, active, touched, ...props })
       {label && <Text style={styles.label}>{label}</Text>}
       <View>
         <TextInput
-          style={[styles.input, active && styles.inputActive]}
+          style={[
+            styles.input,
+            active && styles.inputActive,
+            touched && !!error && styles.inputError,
+          ]}
           value={value}
           onChangeText={onChangeText}
           {...props}
