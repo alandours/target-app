@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { BLACK } from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'center',
-    borderTopColor: '#000',
+    borderTopColor: BLACK,
     borderTopWidth: 1,
     padding: 15.5,
     marginTop: 19,

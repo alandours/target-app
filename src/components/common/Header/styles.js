@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { BLACK } from 'constants/colors';
 
 const dimensions = Dimensions.get('window');
 const imageHeight = Math.round(dimensions.width / 1.6);
@@ -6,7 +7,7 @@ const imageWidth = dimensions.width;
 
 const styles = StyleSheet.create({
   welcome: {
-    color: '#000',
+    color: BLACK,
     fontSize: 20,
     letterSpacing: 3,
     fontWeight: '500',
