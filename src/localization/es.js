@@ -4,6 +4,8 @@ export default {
     email: 'Email',
     password: 'Contraseña',
     button: 'Iniciar sesión',
+    facebookSignIn: 'Conectar con Facebook',
+    forgotPassword: 'Olvidó su contraseña?',
   },
 
   MAIN_SCREEN: {

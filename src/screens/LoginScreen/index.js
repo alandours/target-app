@@ -23,10 +23,10 @@ const LoginScreen = ({ navigation }) => {
       <Header />
       <LoginForm onSubmit={loginRequest} />
       <TouchableOpacity testID="forgot-password-button">
-        <Text style={styles.forgotPasswordButton}>Forgot your password?</Text>
+        <Text style={styles.forgotPasswordButton}>{strings.SIGN_IN.forgotPassword}</Text>
       </TouchableOpacity>
       <TouchableOpacity testID="facebook-login-button">
-        <Text style={styles.facebookLoginButton}>Connect With Facebook</Text>
+        <Text style={styles.facebookLoginButton}>{strings.SIGN_IN.facebookSignIn}</Text>
       </TouchableOpacity>
       <SignButton testID="sign-up-button" onPress={handleLogin} text={strings.SIGN_UP.title} />
     </View>
