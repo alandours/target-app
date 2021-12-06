@@ -1,4 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const dimensions = Dimensions.get('window');
+const imageHeight = Math.round(dimensions.width / 1.6);
+const imageWidth = dimensions.width;
 
 const styles = StyleSheet.create({
   welcome: {
@@ -11,22 +15,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textTransform: 'uppercase',
   },
-  circle: {
-    borderRadius: 10000,
-    height: 293,
+  circles: {
+    height: imageHeight,
+    left: 0,
     position: 'absolute',
-    width: 293,
-  },
-  yellow: {
-    backgroundColor: '#EFC638',
-    left: -13,
-    top: -145,
-  },
-  blue: {
-    backgroundColor: '#2FBCF7',
-    opacity: 0.5,
-    left: 177,
-    top: -96,
+    top: 0,
+    width: imageWidth,
   },
 });
 

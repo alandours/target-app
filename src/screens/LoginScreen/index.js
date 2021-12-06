@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { object } from 'prop-types';
 
+import Header from 'components/common/Header';
 import LoginForm from 'components/LoginForm';
-import Header from 'components/Header';
 import SignButton from 'components/SignButton';
+
 import { login } from 'actions/userActions';
 import strings from 'localization';
 import { SIGN_UP_SCREEN, LOGIN_SCREEN } from 'constants/screens';
+
 import styles from './styles';
 
 const LoginScreen = ({ navigation }) => {

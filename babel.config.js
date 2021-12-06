@@ -5,6 +5,7 @@ module.exports = {
       'module-resolver',
       {
         alias: {
+          assets: './src/assets',
           actions: './src/actions',
           httpClient: './src/httpClient',
           services: './src/services',

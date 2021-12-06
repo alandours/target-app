@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Image, Text } from 'react-native';
+import background from 'assets/images/background.png';
 
 import { APP_NAME } from 'constants/screens';
 
@@ -8,8 +9,7 @@ import styles from './styles';
 const Header = () => {
   return (
     <>
-      <View style={[styles.circle, styles.yellow]} />
-      <View style={[styles.circle, styles.blue]} />
+      <Image source={background} style={styles.circles} />
       <Text style={styles.welcome}>{APP_NAME}</Text>
     </>
   );
