@@ -1,6 +1,6 @@
 export default {
   COMMON: {
-    loading: 'Carcando',
+    loading: 'Cargando',
     somethingWentWrong: 'Algo salió mal',
   },
 
