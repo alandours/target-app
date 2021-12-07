@@ -1,12 +1,16 @@
 import React, { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { Text, View, Button } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { object } from 'prop-types';
 
+import Header from 'components/common/Header';
 import LoginForm from 'components/LoginForm';
+import SignButton from 'components/SignButton';
+
 import { login } from 'actions/userActions';
 import strings from 'localization';
 import { SIGN_UP_SCREEN, LOGIN_SCREEN } from 'constants/screens';
+
 import styles from './styles';
 
 const LoginScreen = ({ navigation }) => {
@@ -16,9 +20,15 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container} testID={LOGIN_SCREEN}>
-      <Text style={styles.welcome}>{strings.SIGN_IN.title}</Text>
+      <Header />
       <LoginForm onSubmit={loginRequest} />
-      <Button testID="sign-up-button" title={strings.SIGN_UP.title} onPress={handleLogin} />
+      <TouchableOpacity testID="forgot-password-button">
+        <Text style={styles.forgotPasswordButton}>{strings.SIGN_IN.forgotPassword}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity testID="facebook-login-button">
+        <Text style={styles.facebookLoginButton}>{strings.SIGN_IN.facebookSignIn}</Text>
+      </TouchableOpacity>
+      <SignButton testID="sign-up-button" onPress={handleLogin} text={strings.SIGN_UP.title} />
     </View>
   );
 };

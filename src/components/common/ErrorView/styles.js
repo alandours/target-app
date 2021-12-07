@@ -3,14 +3,14 @@ import { ERROR } from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
+    alignSelf: 'center',
     justifyContent: 'center',
-    padding: 12,
   },
   error: {
     color: ERROR,
-    fontSize: 14,
-    fontWeight: '500',
-    marginBottom: 8,
+    fontSize: 10,
+    lineHeight: 12,
+    marginTop: -16,
   },
 });
 
