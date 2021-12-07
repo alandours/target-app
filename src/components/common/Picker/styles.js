@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BLACK, GREY } from 'constants/colors';
+import { BLACK, GREY, ERROR } from 'constants/colors';
 
 const styles = StyleSheet.create({
   picker: {
@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textTransform: 'uppercase',
     width: 188,
+  },
+  pickerError: {
+    borderColor: ERROR,
   },
   label: {
     alignSelf: 'center',

@@ -10,7 +10,9 @@ const Picker = ({ label, items, error, active, touched, testID, ...props }) => {
     <View style={styles.pickerContainer}>
       {label && <Text style={styles.label}>{label}</Text>}
       <RNPickerModule
-        textInputProps={{ style: styles.picker }}
+        textInputProps={{
+          style: [styles.picker, touched && !!error && styles.pickerError],
+        }}
         useNativeAndroidPickerStyle={false}
         items={items}
         Icon={() => null}

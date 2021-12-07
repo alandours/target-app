@@ -37,4 +37,22 @@ export default {
       { label: 'OTHER', value: 'other' },
     ],
   },
+
+  VALIDATIONS: {
+    firstName: {
+      presence: '^you forgot to put your name!',
+    },
+    email: {
+      email: '^oops! this email is not valid',
+    },
+    password: {
+      length: '^the password must be 8 characters long',
+    },
+    passwordConfirmation: {
+      equality: "^passwords don't match",
+    },
+    gender: {
+      presence: 'You forgot to select your gender!',
+    },
+  },
 };

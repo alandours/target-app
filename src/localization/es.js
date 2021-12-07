@@ -37,4 +37,22 @@ export default {
       { label: 'OTRO', value: 'other' },
     ],
   },
+
+  VALIDATIONS: {
+    firstName: {
+      presence: '^olvidaste poner el nombre!',
+    },
+    email: {
+      email: '^oops! el email no es valido',
+    },
+    password: {
+      length: '^la contraseña tiene que tener por lo menos 8 caracteres',
+    },
+    passwordConfirmation: {
+      equality: '^las contraseñas no coinciden',
+    },
+    gender: {
+      presence: 'Olvidaste seleccionar tu género!',
+    },
+  },
 };

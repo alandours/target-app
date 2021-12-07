@@ -1,5 +1,5 @@
 import React from 'react';
-import { func, string } from 'prop-types';
+import { func } from 'prop-types';
 import { useStatus, LOADING } from '@rootstrap/redux-tools';
 
 import { signUp } from 'actions/userActions';
@@ -74,7 +74,7 @@ const SignUpForm = ({ onSubmit }) => {
         label={strings.SIGN_UP.password}
         secureTextEntry
         testID="password-input"
-        placeholder={string.SIGN_UP.passwordPlaceholder}
+        placeholder={strings.SIGN_UP.passwordPlaceholder}
         disabled={status === LOADING}
         {...inputProps(FIELDS.password)}
       />
