@@ -8,6 +8,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  mapContainer: {
+    height: '100%',
+    flexShrink: 1,
+    width: '100%',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
 });
 
 export default styles;
