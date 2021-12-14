@@ -5,7 +5,7 @@ const { VALIDATIONS } = strings;
 export default {
   email: {
     presence: true,
-    email: { message: VALIDATIONS.email.email },
+    email: { message: VALIDATIONS.email.format },
   },
   password: {
     presence: true,

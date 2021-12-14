@@ -58,7 +58,7 @@ describe('<SignUpForm />', () => {
 
       it('should show a email is not valid error', () => {
         expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);
-        expect(wrapper.queryByText('Email is not a valid email')).toBeTruthy();
+        expect(wrapper.queryByText('oops! this email is not valid')).toBeTruthy();
       });
     });
   });
@@ -161,15 +161,17 @@ describe('<SignUpForm />', () => {
 
       it('should display an error message', async () => {
         expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);
-        expect(wrapper.queryByText('Password confirmation is not equal to password')).toBeTruthy();
+        expect(wrapper.queryByText("passwords don't match")).toBeTruthy();
       });
     });
 
     describe('and the form is valid', () => {
       beforeEach(() => {
+        fireEvent.changeText(wrapper.queryByTestId('name-input'), 'Example');
         fireEvent.changeText(wrapper.queryByTestId('email-input'), 'example@rootstrap.com');
         fireEvent.changeText(wrapper.queryByTestId('password-input'), 'password');
         fireEvent.changeText(wrapper.queryByTestId('confirm-password-input'), 'password');
+        fireEvent(wrapper.queryByTestId('gender-picker'), 'onValueChange', 'male');
         fireEvent.press(submitButton);
       });
 

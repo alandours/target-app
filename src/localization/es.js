@@ -43,7 +43,7 @@ export default {
       presence: '^olvidaste poner el nombre!',
     },
     email: {
-      email: '^oops! el email no es valido',
+      format: '^oops! el email no es valido',
     },
     password: {
       length: '^la contraseña tiene que tener por lo menos 8 caracteres',

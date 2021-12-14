@@ -8,7 +8,7 @@ export default {
   },
   email: {
     presence: true,
-    email: { message: VALIDATIONS.email.email },
+    email: { message: VALIDATIONS.email.format },
   },
   password: {
     presence: true,
@@ -19,7 +19,10 @@ export default {
   },
   passwordConfirmation: {
     presence: true,
-    equality: { attribute: 'password', message: VALIDATIONS.passwordConfirmation.equality },
+    equality: {
+      attribute: 'password',
+      message: VALIDATIONS.passwordConfirmation.equality,
+    },
   },
   gender: {
     presence: { message: VALIDATIONS.gender.presence },

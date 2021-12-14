@@ -43,7 +43,7 @@ export default {
       presence: '^you forgot to put your name!',
     },
     email: {
-      email: '^oops! this email is not valid',
+      format: '^oops! this email is not valid',
     },
     password: {
       length: '^the password must be 8 characters long',

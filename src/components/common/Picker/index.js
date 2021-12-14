@@ -5,8 +5,8 @@ import RNPickerModule from 'react-native-picker-select';
 
 import styles from './styles';
 
-const Picker = ({ label, items, error, active, touched, testID, ...props }) => {
-  return (
+const Picker = ({ label, items, error, active, touched, testID, ...props }) =>
+  !!items && (
     <View style={styles.pickerContainer}>
       {label && <Text style={styles.label}>{label}</Text>}
       <RNPickerModule
@@ -16,16 +16,16 @@ const Picker = ({ label, items, error, active, touched, testID, ...props }) => {
         useNativeAndroidPickerStyle={false}
         items={items}
         Icon={() => null}
+        touchableWrapperProps={{ testID }}
         {...props}
       />
       {touched && !!error && <Text accessibilityLabel="form-error">{error}</Text>}
     </View>
   );
-};
 
 Picker.propTypes = {
   label: string,
-  items: arrayOf(shape({ label: string, value: string })),
+  items: arrayOf(shape({ label: string, value: string })).isRequired,
   error: oneOfType([arrayOf(string), string]),
   active: bool.isRequired,
   touched: bool.isRequired,
