@@ -57,9 +57,12 @@ export default {
 
   TARGET: {
     create: 'Create new target',
-  },
-
-  PROFILE: {
-    logout: 'Log out',
+    radius: 'Specify area length',
+    title: 'Target title',
+    titlePlaceholder: 'Choose a title for your target',
+    topics: 'Select a topic',
+    topicsPlaceholder: 'What do you want to talk about?',
+    save: 'Save target',
+    length: "You can't create more than 10 targets",
   },
 };
