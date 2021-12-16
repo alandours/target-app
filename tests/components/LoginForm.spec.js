@@ -34,7 +34,7 @@ describe('<LoginForm />', () => {
 
       it('should show a email is not valid error', () => {
         expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(0);
-        expect(wrapper.queryByText('Email is not a valid email')).toBeNull();
+        expect(wrapper.queryByText('oops! this email is not valid')).toBeNull();
         expect(wrapper.queryByText("Email can't be blank")).toBeNull();
       });
     });
@@ -58,7 +58,7 @@ describe('<LoginForm />', () => {
 
       it('should show a email is not valid error', () => {
         expect(wrapper.queryAllByLabelText('form-error')).toHaveLength(1);
-        expect(wrapper.queryByText('Email is not a valid email')).toBeTruthy();
+        expect(wrapper.queryByText('oops! this email is not valid')).toBeTruthy();
       });
     });
   });

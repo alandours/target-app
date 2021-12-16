@@ -1,21 +1,21 @@
 import { StyleSheet } from 'react-native';
-import { ERROR, BLACK, GREY, DARKGREY, WHITE } from 'constants/colors';
+import { BLACK, GREY, ERROR } from 'constants/colors';
 
 const styles = StyleSheet.create({
-  input: {
+  picker: {
     alignSelf: 'center',
-    backgroundColor: WHITE,
+    color: BLACK,
     height: 37,
     borderColor: GREY,
     borderWidth: 1,
-    fontSize: 14,
+    fontSize: 10,
+    justifyContent: 'center',
+    letterSpacing: 1.5,
     textAlign: 'center',
+    textTransform: 'uppercase',
     width: 188,
   },
-  inputActive: {
-    borderColor: DARKGREY,
-  },
-  inputError: {
+  pickerError: {
     borderColor: ERROR,
   },
   label: {
@@ -26,17 +26,8 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     textTransform: 'uppercase',
   },
-  inputContainer: {
+  pickerContainer: {
     marginBottom: 24,
-  },
-  error: {
-    alignSelf: 'center',
-    color: ERROR,
-    fontSize: 10,
-    height: 14,
-    marginTop: 2,
-    textAlign: 'center',
-    width: 222,
   },
 });
 

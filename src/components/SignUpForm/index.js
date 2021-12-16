@@ -11,11 +11,14 @@ import useTextInputProps from 'hooks/useTextInputProps';
 import signUpValidations from 'validations/signUpValidations';
 import ErrorView from 'components/common/ErrorView';
 import MainButton from 'components/common/MainButton';
+import Picker from 'components/common/Picker';
 
 const FIELDS = {
+  firstName: 'firstName',
   email: 'email',
   password: 'password',
   passwordConfirmation: 'passwordConfirmation',
+  gender: 'gender',
 };
 
 const SignUpForm = ({ onSubmit }) => {
@@ -51,33 +54,54 @@ const SignUpForm = ({ onSubmit }) => {
     touched,
   );
 
+  const isLoading = status === LOADING;
+
   return (
     <>
+      <Input
+        label={strings.SIGN_UP.firstName}
+        testID="name-input"
+        editable={!isLoading}
+        {...inputProps(FIELDS.firstName)}
+      />
       <Input
         label={strings.SIGN_UP.email}
         keyboardType="email-address"
         autoCapitalize="none"
         testID="email-input"
+        editable={!isLoading}
         {...inputProps(FIELDS.email)}
       />
       <Input
         label={strings.SIGN_UP.password}
         secureTextEntry
         testID="password-input"
+        placeholder={strings.SIGN_UP.passwordPlaceholder}
+        editable={!isLoading}
         {...inputProps(FIELDS.password)}
       />
       <Input
         label={strings.SIGN_UP.passwordConfirmation}
         secureTextEntry
         testID="confirm-password-input"
+        editable={!isLoading}
         {...inputProps(FIELDS.passwordConfirmation)}
+      />
+      <Picker
+        label={strings.SIGN_UP.gender}
+        placeholder={strings.GENDER.placeholder}
+        testID="gender-picker"
+        items={strings.GENDER.items}
+        onValueChange={inputProps(FIELDS.gender).onChangeText}
+        disabled={isLoading}
+        {...inputProps(FIELDS.gender)}
       />
       <ErrorView errors={{ error }} />
       <MainButton
         testID="signup-submit-button"
         onPress={handleSubmit}
         disabled={formHasErrors}
-        text={status === LOADING ? strings.COMMON.loading : strings.SIGN_UP.button}
+        text={isLoading ? strings.COMMON.loading : strings.SIGN_UP.button}
       />
     </>
   );

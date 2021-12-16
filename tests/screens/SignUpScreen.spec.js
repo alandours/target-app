@@ -23,6 +23,10 @@ describe('<SignUpScreen />', () => {
     expect(wrapper.queryByTestId(SIGN_UP_SCREEN)).toBeTruthy();
   });
 
+  it('should display a name field', () => {
+    expect(wrapper.queryByTestId('name-input')).toBeTruthy();
+  });
+
   it('should display an email field', () => {
     expect(wrapper.queryByTestId('email-input')).toBeTruthy();
   });
@@ -35,11 +39,17 @@ describe('<SignUpScreen />', () => {
     expect(wrapper.queryByTestId('confirm-password-input')).toBeTruthy();
   });
 
+  it('should display a gender picker', () => {
+    expect(wrapper.queryByTestId('gender-picker')).toBeTruthy();
+  });
+
   describe('when the user submits the form', () => {
     beforeEach(() => {
+      fireEvent.changeText(wrapper.queryByTestId('name-input'), 'Example');
       fireEvent.changeText(wrapper.queryByTestId('email-input'), 'example@rootstrap.com');
       fireEvent.changeText(wrapper.queryByTestId('password-input'), 'password');
       fireEvent.changeText(wrapper.queryByTestId('confirm-password-input'), 'password');
+      fireEvent(wrapper.queryByTestId('gender-picker'), 'onValueChange', 'male');
     });
 
     it('should show the loading spinner', async () => {
