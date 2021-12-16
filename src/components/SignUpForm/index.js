@@ -54,12 +54,14 @@ const SignUpForm = ({ onSubmit }) => {
     touched,
   );
 
+  const isLoading = status === LOADING;
+
   return (
     <>
       <Input
         label={strings.SIGN_UP.firstName}
         testID="name-input"
-        disabled={status === LOADING}
+        editable={!isLoading}
         {...inputProps(FIELDS.firstName)}
       />
       <Input
@@ -67,7 +69,7 @@ const SignUpForm = ({ onSubmit }) => {
         keyboardType="email-address"
         autoCapitalize="none"
         testID="email-input"
-        disabled={status === LOADING}
+        editable={!isLoading}
         {...inputProps(FIELDS.email)}
       />
       <Input
@@ -75,14 +77,14 @@ const SignUpForm = ({ onSubmit }) => {
         secureTextEntry
         testID="password-input"
         placeholder={strings.SIGN_UP.passwordPlaceholder}
-        disabled={status === LOADING}
+        editable={!isLoading}
         {...inputProps(FIELDS.password)}
       />
       <Input
         label={strings.SIGN_UP.passwordConfirmation}
         secureTextEntry
         testID="confirm-password-input"
-        disabled={status === LOADING}
+        editable={!isLoading}
         {...inputProps(FIELDS.passwordConfirmation)}
       />
       <Picker
@@ -91,7 +93,7 @@ const SignUpForm = ({ onSubmit }) => {
         testID="gender-picker"
         items={strings.GENDER.items}
         onValueChange={inputProps(FIELDS.gender).onChangeText}
-        disabled={status === LOADING}
+        disabled={isLoading}
         {...inputProps(FIELDS.gender)}
       />
       <ErrorView errors={{ error }} />
@@ -99,7 +101,7 @@ const SignUpForm = ({ onSubmit }) => {
         testID="signup-submit-button"
         onPress={handleSubmit}
         disabled={formHasErrors}
-        text={status === LOADING ? strings.COMMON.loading : strings.SIGN_UP.button}
+        text={isLoading ? strings.COMMON.loading : strings.SIGN_UP.button}
       />
     </>
   );
