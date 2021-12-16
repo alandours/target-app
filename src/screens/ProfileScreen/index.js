@@ -11,13 +11,9 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView>
-      <Button onPress={logoutRequest} title="Logout" />
+      <Button onPress={logoutRequest} title={strings.PROFILE.logout} />
     </SafeAreaView>
   );
-};
-
-ProfileScreen.navigationOptions = {
-  title: strings.MAIN.title,
 };
 
 export default ProfileScreen;

@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: WHITE,
     justifyContent: 'center',
     width: '100%',
   },

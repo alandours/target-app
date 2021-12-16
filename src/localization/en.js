@@ -58,4 +58,8 @@ export default {
   TARGET: {
     create: 'Create new target',
   },
+
+  PROFILE: {
+    logout: 'Log out',
+  },
 };
