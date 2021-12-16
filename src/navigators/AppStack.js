@@ -35,6 +35,7 @@ const AppStack = () => (
         headerRight: () => (
           <HeaderButton
             icon={conversationsIcon}
+            onPress={() => {}}
             style={{
               marginRight: 10,
               width: 28,
