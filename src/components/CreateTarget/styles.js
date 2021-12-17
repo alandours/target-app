@@ -3,18 +3,21 @@ import { WHITE } from 'constants/colors';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: WHITE,
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-  },
-  mapContainer: {
-    height: '100%',
-    flexShrink: 1,
+    backgroundColor: WHITE,
+    justifyContent: 'center',
     width: '100%',
   },
-  map: {
-    ...StyleSheet.absoluteFillObject,
+  createTarget: {
+    fontSize: 11,
+    letterSpacing: 1.65,
+    textTransform: 'uppercase',
+  },
+  targetIcon: {
+    alignSelf: 'center',
+    height: 30,
+    margin: 12,
+    width: 30,
   },
 });
 

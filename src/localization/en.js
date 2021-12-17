@@ -13,9 +13,8 @@ export default {
     forgotPassword: 'Forgot your password?',
   },
 
-  MAIN_SCREEN: {
-    logout: 'Sign out',
-    title: 'Home Screen',
+  MAIN: {
+    title: 'Target Points',
   },
 
   SIGN_UP: {
@@ -54,5 +53,13 @@ export default {
     gender: {
       presence: 'You forgot to select your gender!',
     },
+  },
+
+  TARGET: {
+    create: 'Create new target',
+  },
+
+  PROFILE: {
+    logout: 'Log out',
   },
 };

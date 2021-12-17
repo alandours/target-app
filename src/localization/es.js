@@ -13,9 +13,8 @@ export default {
     forgotPassword: 'Olvidó su contraseña?',
   },
 
-  MAIN_SCREEN: {
-    logout: 'Cerrar sesión',
-    title: 'Pagina Principal',
+  MAIN: {
+    title: 'Target Points',
   },
 
   SIGN_UP: {
@@ -54,5 +53,13 @@ export default {
     gender: {
       presence: 'Olvidaste seleccionar tu género!',
     },
+  },
+
+  TARGET: {
+    create: 'Crear nuevo target',
+  },
+
+  PROFILE: {
+    logout: 'Cerrar sesión',
   },
 };
