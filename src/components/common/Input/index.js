@@ -3,7 +3,7 @@ import { arrayOf, bool, func, oneOfType, string } from 'prop-types';
 import { View, TextInput, Text } from 'react-native';
 import styles from './styles';
 
-const Input = ({ label, value, onChangeText, error, active, touched, ...props }) => {
+const Input = ({ label, value, onChangeText, error, active, touched, createInput, ...props }) => {
   // Register field in the form
   useEffect(() => {
     onChangeText(value, true);
@@ -11,12 +11,13 @@ const Input = ({ label, value, onChangeText, error, active, touched, ...props })
   }, []);
 
   return (
-    <View style={styles.inputContainer}>
-      {label && <Text style={styles.label}>{label}</Text>}
+    <View style={[styles.inputContainer, createInput && styles.createInputContainer]}>
+      {label && <Text style={[styles.label, createInput && styles.createInputLabel]}>{label}</Text>}
       <View>
         <TextInput
           style={[
             styles.input,
+            createInput && styles.createInput,
             active && styles.inputActive,
             touched && !!error && styles.inputError,
           ]}
@@ -41,6 +42,7 @@ Input.propTypes = {
   error: oneOfType([arrayOf(string), string]),
   active: bool.isRequired,
   touched: bool.isRequired,
+  createInput: bool,
 };
 
 export default Input;

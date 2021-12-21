@@ -53,6 +53,16 @@ export default {
     gender: {
       presence: 'Olvidaste seleccionar tu género!',
     },
+    radius: {
+      presence: '^El area no puede estar vacia',
+      numericality: '^El area tiene que ser un número',
+    },
+    targetTitle: {
+      presence: '^El título no puede estar vacio',
+    },
+    topic: {
+      presence: '^El tema no puede estar vacio',
+    },
   },
 
   TARGET: {

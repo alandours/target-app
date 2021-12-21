@@ -38,6 +38,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: 222,
   },
+  createInputContainer: {
+    marginBottom: 11,
+  },
+  createInput: {
+    justifyContent: 'center',
+    paddingLeft: 12,
+    width: 257,
+  },
+  createInputLabel: {
+    alignSelf: 'flex-start',
+    letterSpacing: 0.7,
+  },
 });
 
 export default styles;
