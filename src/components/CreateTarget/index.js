@@ -8,7 +8,12 @@ import TargetForm from 'components/TargetForm';
 
 import styles from './styles';
 
-const CreateTarget = ({ createFormVisible, showCreateForm, submitTarget, onCreateSuccess }) => (
+const CreateTarget = ({
+  createFormVisible = false,
+  showCreateForm,
+  submitTarget,
+  onCreateSuccess,
+}) => (
   <View style={styles.container}>
     {createFormVisible ? (
       <TargetForm onSubmit={submitTarget} onCreateSuccess={onCreateSuccess} />

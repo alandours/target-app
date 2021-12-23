@@ -8,20 +8,18 @@ import targetMarkerCircle from 'assets/images/target-marker-circle.png';
 
 import styles from './styles';
 
-const NewTarget = ({ coordinate, changeTargetPosition }) => {
-  return (
-    <Marker
-      coordinate={coordinate}
-      draggable
-      onDragEnd={changeTargetPosition}
-      onPress={e => e.stopPropagation()}>
-      <View style={styles.markerContainer}>
-        <Image source={targetMarkerCircle} style={styles.markerCircle} />
-        <Image source={targetMarker} style={styles.marker} />
-      </View>
-    </Marker>
-  );
-};
+const NewTarget = ({ coordinate, changeTargetPosition }) => (
+  <Marker
+    draggable
+    coordinate={coordinate}
+    onDragEnd={changeTargetPosition}
+    onPress={e => e.stopPropagation()}>
+    <View style={styles.markerContainer}>
+      <Image source={targetMarkerCircle} style={styles.markerCircle} />
+      <Image source={targetMarker} style={styles.marker} />
+    </View>
+  </Marker>
+);
 
 NewTarget.propTypes = {
   coordinate: shape({ latitude: number, longitude: number }).isRequired,

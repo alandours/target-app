@@ -20,7 +20,7 @@ const useCreateTarget = (targets, mapCenter, setMapCenter) => {
   const createTargetRequest = useCallback(target => dispatch(createTarget(target)), [dispatch]);
 
   const changeTargetPosition = e => {
-    const { latitude, longitude } = e.nativeEvent?.coordinate;
+    const { latitude, longitude } = e.nativeEvent?.coordinate || {};
     setMapCenter({ latitude, longitude, latitudeDelta, longitudeDelta });
     setNewTarget({ latitude, longitude });
   };

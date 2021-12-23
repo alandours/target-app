@@ -5,10 +5,13 @@ export const getTopics = createThunk('GET_TOPICS', async () => {
   const {
     data: { topics },
   } = await targetService.getTopics();
-  const topicsById = {};
-  topics.forEach(({ topic: { id, label, icon } }) => {
-    topicsById[id] = { id, label, icon };
-  });
+
+  const topicsById = topics.reduce((acc, { topic: { id, label, icon } }) => {
+    const topicsAcc = acc;
+    topicsAcc[id] = { id, label, icon };
+    return topicsAcc;
+  }, {});
+
   return topicsById;
 });
 

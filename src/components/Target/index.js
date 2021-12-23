@@ -14,7 +14,7 @@ const Target = ({ coordinate, icon }) => (
 );
 
 Target.propTypes = {
-  coordinate: shape({ latitude: number, longitude: number }).isRequired,
+  coordinate: shape({ latitude: number.isRequired, longitude: number.isRequired }).isRequired,
   icon: string,
 };
 

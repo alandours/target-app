@@ -104,7 +104,7 @@ const TargetForm = ({ onSubmit, onCreateSuccess }) => {
             {!topic && <Text>{strings.TARGET.topicsPlaceholder}</Text>}
           </TouchableOpacity>
         </View>
-        <View style={{ display: 'none' }}>
+        <View style={styles.hidden}>
           <Input
             label={strings.TARGET.topics}
             testID="target-topics"

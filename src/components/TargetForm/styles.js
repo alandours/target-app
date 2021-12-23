@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     marginRight: 8,
     width: 19,
   },
+  hidden: {
+    display: 'none',
+  },
 });
 
 export default styles;
