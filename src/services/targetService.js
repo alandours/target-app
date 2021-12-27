@@ -12,6 +12,10 @@ class TargetService {
   createTarget(target) {
     return httpClient.post('/targets', target);
   }
+
+  deleteTarget(target) {
+    return httpClient.delete(`/targets/${target.id}`, { data: null });
+  }
 }
 
 export default new TargetService();

@@ -27,6 +27,8 @@ export const createTarget = createThunk('CREATE_TARGET', async target => {
   return data;
 });
 
+export const deleteTarget = createThunk('DELETE_TARGET', targetService.deleteTarget);
+
 export const { success: topicsSuccess } = getTopics;
 export const { success: targetsSuccess } = getTargets;
 export const { success: createTargetSuccess } = createTarget;
