@@ -5,3 +5,4 @@ export const GREY = '#CCCCCC';
 export const DARKGREY = '#666666';
 export const MAIN = 'rgba(239, 198, 56, 1)';
 export const MAIN_TRANSPARENT = 'rgba(239, 198, 56, 0.7)';
+export const SECONDARY_TRANSPARENT = 'rgba(47, 188, 247, 0.7)';

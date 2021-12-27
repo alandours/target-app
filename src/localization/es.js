@@ -74,5 +74,10 @@ export default {
     topicsPlaceholder: 'Sobre que quieres hablar?',
     save: 'Guardar target',
     length: 'No puedes crear más de 10 targets',
+    delete: 'Eliminar',
+    deleteTitle: 'Seguro que quieres eliminar este target?',
+    deleteSubtitle: 'Si lo eliminas, no podrás seguir hablando con sus matches',
+    deleteCancel: 'Cancelar',
+    edit: 'Save',
   },
 };

@@ -74,5 +74,11 @@ export default {
     topicsPlaceholder: 'What do you want to talk about?',
     save: 'Save target',
     length: "You can't create more than 10 targets",
+    delete: 'Delete',
+    deleteTitle: 'Sure you want to delete this target?',
+    deleteSubtitle:
+      "Remember that if you delete it, you won't be able to chat with its matches anymore",
+    deleteCancel: 'Cancel',
+    edit: 'Save',
   },
 };
