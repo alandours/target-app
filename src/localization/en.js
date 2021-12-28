@@ -53,13 +53,26 @@ export default {
     gender: {
       presence: 'You forgot to select your gender!',
     },
+    radius: {
+      presence: "^Area can't be empty",
+      numericality: '^Area needs to be a number',
+    },
+    targetTitle: {
+      presence: "can't be empty",
+    },
+    topic: {
+      presence: "can't be empty",
+    },
   },
 
   TARGET: {
     create: 'Create new target',
-  },
-
-  PROFILE: {
-    logout: 'Log out',
+    radius: 'Specify area length',
+    title: 'Target title',
+    titlePlaceholder: 'Choose a title for your target',
+    topics: 'Select a topic',
+    topicsPlaceholder: 'What do you want to talk about?',
+    save: 'Save target',
+    length: "You can't create more than 10 targets",
   },
 };

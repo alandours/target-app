@@ -53,13 +53,26 @@ export default {
     gender: {
       presence: 'Olvidaste seleccionar tu género!',
     },
+    radius: {
+      presence: '^El area no puede estar vacia',
+      numericality: '^El area tiene que ser un número',
+    },
+    targetTitle: {
+      presence: '^El título no puede estar vacio',
+    },
+    topic: {
+      presence: '^El tema no puede estar vacio',
+    },
   },
 
   TARGET: {
     create: 'Crear nuevo target',
-  },
-
-  PROFILE: {
-    logout: 'Cerrar sesión',
+    radius: 'Especifica un área',
+    title: 'Título del target',
+    titlePlaceholder: 'Elige un título para tu target',
+    topics: 'Selecciona un tema',
+    topicsPlaceholder: 'Sobre que quieres hablar?',
+    save: 'Guardar target',
+    length: 'No puedes crear más de 10 targets',
   },
 };

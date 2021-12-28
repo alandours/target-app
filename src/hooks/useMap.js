@@ -6,6 +6,7 @@ const longitudeDelta = 0.05;
 
 const useMap = () => {
   const [initialRegion, setInitialRegion] = useState(null);
+  const [mapCenter, setMapCenter] = useState(null);
 
   useEffect(() => {
     Geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -17,10 +18,15 @@ const useMap = () => {
       };
 
       setInitialRegion(initialCoords);
+      setMapCenter(initialCoords);
     });
   }, []);
 
-  return { initialRegion };
+  return {
+    initialRegion,
+    mapCenter,
+    setMapCenter,
+  };
 };
 
 export default useMap;
