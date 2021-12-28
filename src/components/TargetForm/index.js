@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, Image } from 'react-native';
-import { func } from 'prop-types';
+import { useSelector } from 'react-redux';
+import Modal from 'react-native-modal';
+import { func, number, shape, string } from 'prop-types';
 import { useStatus, LOADING, SUCCESS } from '@rootstrap/redux-tools';
 
-import { createTarget } from 'actions/targetActions';
+import { createTarget, deleteTarget } from 'actions/targetActions';
 
 import useForm from 'hooks/useForm';
 import useTextInputProps from 'hooks/useTextInputProps';
@@ -12,6 +14,7 @@ import strings from 'localization';
 import targetValidations from 'validations/targetValidations';
 
 import Input from 'components/common/Input';
+import ErrorView from 'components/common/ErrorView';
 import MainButton from 'components/common/MainButton';
 import Topics from 'components/Topics';
 
@@ -24,11 +27,15 @@ const FIELDS = {
   topic: 'topic_id',
 };
 
-const TargetForm = ({ onSubmit, onCreateSuccess }) => {
+const TargetForm = ({ selectedTarget, onDeleteTarget, onSubmit, onSuccess }) => {
   const [showTopics, setShowTopics] = useState(false);
   const [topic, setTopic] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const topics = useSelector(({ targets: { topics } }) => topics);
 
+  const { error: deleteError, status: deleteStatus } = useStatus(deleteTarget);
   const { status: createStatus } = useStatus(createTarget);
+
   const validator = useValidation(targetValidations);
 
   const {
@@ -41,6 +48,7 @@ const TargetForm = ({ onSubmit, onCreateSuccess }) => {
     activeFields,
     touched,
     formHasErrors,
+    setValues,
   } = useForm(
     {
       onSubmit,
@@ -62,10 +70,26 @@ const TargetForm = ({ onSubmit, onCreateSuccess }) => {
   );
 
   useEffect(() => {
-    if (createStatus === SUCCESS) {
-      onCreateSuccess();
+    if (selectedTarget) {
+      const { radius, title, topicId } = selectedTarget;
+      setValues({
+        radius: radius.toString(),
+        title,
+        topicId,
+      });
+      setTopic(topics[selectedTarget.topicId]);
     }
-  }, [createStatus, onCreateSuccess]);
+  }, [selectedTarget, topics, setValues]);
+
+  useEffect(() => {
+    if (createStatus === SUCCESS) {
+      onSuccess(createTarget);
+    }
+
+    if (deleteStatus === SUCCESS) {
+      onSuccess(deleteTarget);
+    }
+  }, [createStatus, deleteStatus, onSuccess]);
 
   const selectTopic = topic => {
     setTopic(topic);
@@ -81,6 +105,7 @@ const TargetForm = ({ onSubmit, onCreateSuccess }) => {
           testID="target-radius"
           keyboardType="number-pad"
           createInput
+          editable={!selectedTarget}
           {...inputProps(FIELDS.radius)}
         />
         <Input
@@ -88,6 +113,7 @@ const TargetForm = ({ onSubmit, onCreateSuccess }) => {
           placeholder={strings.TARGET.titlePlaceholder}
           testID="target-title"
           createInput
+          editable={!selectedTarget}
           {...inputProps(FIELDS.title)}
         />
         <View style={styles.container}>
@@ -112,22 +138,66 @@ const TargetForm = ({ onSubmit, onCreateSuccess }) => {
             value={topic && topic.id.toString()}
           />
         </View>
-        <MainButton
-          testID="save-target-button"
-          onPress={handleSubmit}
-          disabled={formHasErrors}
-          buttonStyles={styles.saveButton}
-          text={createStatus === LOADING ? strings.COMMON.loading : strings.TARGET.save}
-        />
+        {selectedTarget ? (
+          <View style={styles.editActions}>
+            <MainButton
+              testID="delete-target-button"
+              onPress={() => setShowDeleteModal(true)}
+              buttonStyles={styles.deleteButton}
+              text={strings.TARGET.delete}
+            />
+            <MainButton
+              testID="edit-target-button"
+              onPress={() => {}}
+              buttonStyles={styles.editButton}
+              text={strings.TARGET.edit}
+            />
+          </View>
+        ) : (
+          <MainButton
+            testID="save-target-button"
+            onPress={handleSubmit}
+            disabled={formHasErrors}
+            buttonStyles={styles.saveButton}
+            text={createStatus === LOADING ? strings.COMMON.loading : strings.TARGET.save}
+          />
+        )}
       </View>
       {showTopics && <Topics selectTopic={selectTopic} />}
+      {selectedTarget && (
+        <Modal isVisible={showDeleteModal}>
+          <View style={styles.modal}>
+            <Text style={styles.modalTitle}>{strings.TARGET.deleteTitle}</Text>
+            <View style={styles.modalTopicIconContainer}>
+              <Image
+                style={styles.modalTopicIcon}
+                source={{ uri: topics[selectedTarget.topicId].icon }}
+              />
+            </View>
+            <Text style={styles.modalTopic}>{selectedTarget.title}</Text>
+            <Text style={styles.modalSubtitle}>{strings.TARGET.deleteSubtitle}</Text>
+            <ErrorView errors={{ deleteError }} />
+            <MainButton
+              testID="confirm-delete-button"
+              onPress={onDeleteTarget}
+              buttonStyles={styles.saveButton}
+              text={deleteStatus === LOADING ? strings.COMMON.loading : strings.TARGET.delete}
+            />
+            <TouchableOpacity onPress={() => setShowDeleteModal(false)}>
+              <Text style={styles.cancelButton}>{strings.TARGET.deleteCancel}</Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
+      )}
     </View>
   );
 };
 
 TargetForm.propTypes = {
+  selectedTarget: shape({ id: number, title: string, radius: number, topicId: number }),
+  onDeleteTarget: func,
   onSubmit: func.isRequired,
-  onCreateSuccess: func,
+  onSuccess: func,
 };
 
 export default TargetForm;

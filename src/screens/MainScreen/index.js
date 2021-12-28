@@ -7,6 +7,7 @@ import useGetTargets from 'hooks/useGetTargets';
 import useMap from 'hooks/useMap';
 import useCreateTarget from 'hooks/useCreateTarget';
 import CreateTarget from 'components/CreateTarget';
+import EditTarget from 'components/EditTarget';
 import NewTarget from 'components/NewTarget';
 import Target from 'components/Target';
 
@@ -19,11 +20,14 @@ const MainScreen = () => {
   const {
     newTarget,
     createFormVisible,
+    selectedTarget,
+    setSelectedTarget,
     changeTargetPosition,
     deselectTarget,
     showCreateForm,
-    submitTarget,
-    onCreateSuccess,
+    onCreateTarget,
+    onDeleteTarget,
+    onSuccess,
   } = useCreateTarget(targets, mapCenter, setMapCenter);
 
   return (
@@ -46,6 +50,8 @@ const MainScreen = () => {
                     key={id}
                     coordinate={{ latitude, longitude }}
                     icon={topics[topicId].icon}
+                    selectTarget={() => setSelectedTarget(target)}
+                    selected={id === selectedTarget?.id}
                   />
                 );
               })}
@@ -54,12 +60,19 @@ const MainScreen = () => {
             )}
           </MapView>
         </View>
-        {mapCenter && (
+        {mapCenter && !selectedTarget && (
           <CreateTarget
-            onCreateSuccess={onCreateSuccess}
+            onSuccess={onSuccess}
             createFormVisible={createFormVisible}
             showCreateForm={showCreateForm}
-            submitTarget={submitTarget}
+            onCreateTarget={onCreateTarget}
+          />
+        )}
+        {mapCenter && selectedTarget && (
+          <EditTarget
+            selectedTarget={selectedTarget}
+            onDeleteTarget={onDeleteTarget}
+            onSuccess={onSuccess}
           />
         )}
       </SafeAreaView>

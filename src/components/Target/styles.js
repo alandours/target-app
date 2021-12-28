@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { MAIN_TRANSPARENT } from 'constants/colors';
+import { MAIN_TRANSPARENT, SECONDARY_TRANSPARENT } from 'constants/colors';
 
 const styles = StyleSheet.create({
   markerContainer: {
@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     height: 55,
     justifyContent: 'center',
     width: 55,
+  },
+  markerSelected: {
+    backgroundColor: SECONDARY_TRANSPARENT,
   },
   marker: {
     alignSelf: 'center',

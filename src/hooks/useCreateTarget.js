@@ -1,8 +1,8 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Alert } from 'react-native';
 
-import { createTarget } from 'actions/targetActions';
+import { createTarget, deleteTarget } from 'actions/targetActions';
 import { TARGETS_MAX } from 'constants/data';
 import useGetTargets from 'hooks/useGetTargets';
 import strings from 'localization';
@@ -13,11 +13,13 @@ const longitudeDelta = 0.05;
 const useCreateTarget = (targets, mapCenter, setMapCenter) => {
   const [newTarget, setNewTarget] = useState(null);
   const [createFormVisible, setCreateFormVisible] = useState(false);
+  const [selectedTarget, setSelectedTarget] = useState(null);
 
   const { targetsRequest } = useGetTargets();
 
   const dispatch = useDispatch();
   const createTargetRequest = useCallback(target => dispatch(createTarget(target)), [dispatch]);
+  const deleteTargetRequest = useCallback(target => dispatch(deleteTarget(target)), [dispatch]);
 
   const changeTargetPosition = e => {
     const { latitude, longitude } = e.nativeEvent?.coordinate || {};
@@ -26,6 +28,7 @@ const useCreateTarget = (targets, mapCenter, setMapCenter) => {
   };
 
   const deselectTarget = () => {
+    setSelectedTarget(null);
     setNewTarget(null);
     setCreateFormVisible(false);
   };
@@ -39,7 +42,7 @@ const useCreateTarget = (targets, mapCenter, setMapCenter) => {
     }
   };
 
-  const submitTarget = target => {
+  const onCreateTarget = target => {
     createTargetRequest({
       ...target,
       lat: mapCenter.latitude,
@@ -47,20 +50,35 @@ const useCreateTarget = (targets, mapCenter, setMapCenter) => {
     });
   };
 
-  const onCreateSuccess = () => {
+  const onSuccess = action => {
     deselectTarget();
     targetsRequest();
-    dispatch(createTarget.reset());
+    dispatch(action.reset());
+  };
+
+  useEffect(() => {
+    if (selectedTarget) {
+      const { lat: latitude, lng: longitude } = selectedTarget;
+      setMapCenter({ latitude, longitude, latitudeDelta, longitudeDelta });
+      setNewTarget(null);
+    }
+  }, [selectedTarget, setMapCenter]);
+
+  const onDeleteTarget = () => {
+    deleteTargetRequest(selectedTarget);
   };
 
   return {
     newTarget,
     createFormVisible,
+    selectedTarget,
+    setSelectedTarget,
     changeTargetPosition,
     deselectTarget,
     showCreateForm,
-    submitTarget,
-    onCreateSuccess,
+    onCreateTarget,
+    onDeleteTarget,
+    onSuccess,
   };
 };
 

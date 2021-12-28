@@ -8,15 +8,10 @@ import TargetForm from 'components/TargetForm';
 
 import styles from './styles';
 
-const CreateTarget = ({
-  createFormVisible = false,
-  showCreateForm,
-  submitTarget,
-  onCreateSuccess,
-}) => (
+const CreateTarget = ({ createFormVisible = false, showCreateForm, onCreateTarget, onSuccess }) => (
   <View style={styles.container}>
     {createFormVisible ? (
-      <TargetForm onSubmit={submitTarget} onCreateSuccess={onCreateSuccess} />
+      <TargetForm onSubmit={onCreateTarget} onSuccess={onSuccess} />
     ) : (
       <TouchableOpacity onPress={showCreateForm}>
         <Image source={targetIcon} style={styles.targetIcon} />
@@ -29,8 +24,8 @@ const CreateTarget = ({
 CreateTarget.propTypes = {
   createFormVisible: bool,
   showCreateForm: func,
-  submitTarget: func,
-  onCreateSuccess: func,
+  onCreateTarget: func,
+  onSuccess: func,
 };
 
 export default CreateTarget;
