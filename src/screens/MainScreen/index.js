@@ -5,7 +5,7 @@ import MapView from 'react-native-maps';
 import strings from 'localization';
 import useGetTargets from 'hooks/useGetTargets';
 import useMap from 'hooks/useMap';
-import useCreateTarget from 'hooks/useCreateTarget';
+import useTargets from 'hooks/useTargets';
 import CreateTarget from 'components/CreateTarget';
 import EditTarget from 'components/EditTarget';
 import NewTarget from 'components/NewTarget';
@@ -28,7 +28,7 @@ const MainScreen = () => {
     onCreateTarget,
     onDeleteTarget,
     onSuccess,
-  } = useCreateTarget(targets, mapCenter, setMapCenter);
+  } = useTargets(targets, mapCenter, setMapCenter);
 
   return (
     initialRegion && (

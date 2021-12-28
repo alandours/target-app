@@ -10,7 +10,7 @@ import strings from 'localization';
 const latitudeDelta = 0.05;
 const longitudeDelta = 0.05;
 
-const useCreateTarget = (targets, mapCenter, setMapCenter) => {
+const useTargets = (targets, mapCenter, setMapCenter) => {
   const [newTarget, setNewTarget] = useState(null);
   const [createFormVisible, setCreateFormVisible] = useState(false);
   const [selectedTarget, setSelectedTarget] = useState(null);
@@ -82,4 +82,4 @@ const useCreateTarget = (targets, mapCenter, setMapCenter) => {
   };
 };
 
-export default useCreateTarget;
+export default useTargets;
