@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import Modal from 'react-native-modal';
 import { func } from 'prop-types';
 import { useStatus, LOADING, SUCCESS } from '@rootstrap/redux-tools';
 
-import { updateProfile } from 'actions/userActions';
+import { updateProfile, changePassword } from 'actions/userActions';
+import PasswordForm from 'components/PasswordForm';
 import Input from 'components/common/Input';
 import ErrorView from 'components/common/ErrorView';
 import MainButton from 'components/common/MainButton';
@@ -24,10 +26,12 @@ const FIELDS = {
 };
 
 const ProfileForm = ({ onSubmit }) => {
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
 
   const profile = useSelector(({ session: { profile } }) => profile);
   const dispatch = useDispatch();
+  const changePasswordRequest = useCallback(data => dispatch(changePassword(data)), [dispatch]);
 
   const { error, status } = useStatus(updateProfile);
 
@@ -87,7 +91,7 @@ const ProfileForm = ({ onSubmit }) => {
         testID="email-input"
         {...inputProps(FIELDS.email)}
       />
-      <TouchableOpacity activeOpacity={1} onPress={() => {}}>
+      <TouchableOpacity activeOpacity={1} onPress={() => setShowPasswordModal(true)}>
         <View pointerEvents="none">
           <Input
             label={strings.PROFILE.password}
@@ -108,6 +112,19 @@ const ProfileForm = ({ onSubmit }) => {
         buttonStyles={styles.saveButton}
         text={status === LOADING ? strings.COMMON.loading : strings.PROFILE.button}
       />
+      <Modal isVisible={showPasswordModal}>
+        <TouchableOpacity
+          onPress={() => setShowPasswordModal(false)}
+          activeOpacity={1}
+          style={styles.modalContainer}>
+          <TouchableOpacity style={styles.modal} activeOpacity={1}>
+            <PasswordForm
+              onSubmit={changePasswordRequest}
+              setShowPasswordModal={setShowPasswordModal}
+            />
+          </TouchableOpacity>
+        </TouchableOpacity>
+      </Modal>
     </>
   );
 };

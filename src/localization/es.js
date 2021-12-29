@@ -90,4 +90,12 @@ export default {
     logout: 'Cerrar sesión',
     success: 'El perfil fue actualizado!',
   },
+
+  PASSWORD: {
+    currentPassword: 'Ingresa tu contraseña actual para editar',
+    password: 'Nueva contraseña',
+    passwordConfirmation: 'Confirma la nueva contraseña',
+    button: 'Listo',
+    cancel: 'Cancelar',
+  },
 };
