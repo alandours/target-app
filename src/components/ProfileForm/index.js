@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Modal from 'react-native-modal';
-import { func } from 'prop-types';
+import { func, shape, string } from 'prop-types';
 import { useStatus, LOADING, SUCCESS } from '@rootstrap/redux-tools';
 
 import { updateProfile, changePassword } from 'actions/userActions';
@@ -25,11 +25,10 @@ const FIELDS = {
   password: 'password',
 };
 
-const ProfileForm = ({ onSubmit }) => {
+const ProfileForm = ({ profile, onSubmit }) => {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
 
-  const profile = useSelector(({ session: { profile } }) => profile);
   const dispatch = useDispatch();
   const changePasswordRequest = useCallback(data => dispatch(changePassword(data)), [dispatch]);
 
@@ -130,6 +129,7 @@ const ProfileForm = ({ onSubmit }) => {
 };
 
 ProfileForm.propTypes = {
+  profile: shape({ username: string, email: string.isRequired }).isRequired,
   onSubmit: func.isRequired,
 };
 

@@ -14,12 +14,15 @@ import styles from './styles';
 const ProfileScreen = () => {
   const dispatch = useDispatch();
   const user = useSelector(({ session: { user } }) => user);
+  const profile = useSelector(({ session: { profile } }) => profile);
   const getProfileRequest = useCallback(user => dispatch(getProfile(user)), [dispatch]);
   const updateProfileRequest = useCallback(data => dispatch(updateProfile(data)), [dispatch]);
   const logoutRequest = useCallback(() => dispatch(logout()), [dispatch]);
 
   useEffect(() => {
-    getProfileRequest(user);
+    if (user) {
+      getProfileRequest(user.data);
+    }
   }, [getProfileRequest, user]);
 
   return (
@@ -28,7 +31,7 @@ const ProfileScreen = () => {
         <Image source={profileBackground} style={styles.profileBackground} />
         <Image source={profilePicture} style={styles.profilePicture} />
       </View>
-      <ProfileForm onSubmit={updateProfileRequest} />
+      {profile && <ProfileForm profile={profile} onSubmit={updateProfileRequest} />}
       <TouchableOpacity onPress={logoutRequest} style={styles.logoutButton}>
         <Text style={styles.logout}>{strings.PROFILE.logout}</Text>
       </TouchableOpacity>
