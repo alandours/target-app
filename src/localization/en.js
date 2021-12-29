@@ -81,4 +81,14 @@ export default {
     deleteCancel: 'Cancel',
     edit: 'Save',
   },
+
+  PROFILE: {
+    title: 'Profile',
+    username: 'Username',
+    email: 'Email',
+    password: 'Password',
+    button: 'Save changes',
+    logout: 'Log out',
+    success: 'The profile was updated!',
+  },
 };

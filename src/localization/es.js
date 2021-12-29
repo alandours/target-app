@@ -80,4 +80,14 @@ export default {
     deleteCancel: 'Cancelar',
     edit: 'Save',
   },
+
+  PROFILE: {
+    title: 'Perfil',
+    username: 'Nombre de usuario',
+    email: 'Email',
+    password: 'Contraseña',
+    button: 'Guardar cambios',
+    logout: 'Cerrar sesión',
+    success: 'El perfil fue actualizado!',
+  },
 };

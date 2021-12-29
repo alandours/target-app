@@ -12,6 +12,18 @@ class UserService {
   signUp(user) {
     return httpClient.post('/users', user);
   }
+
+  getProfile(user) {
+    return httpClient.get(`/users/${user.id}`, { data: null });
+  }
+
+  updateProfile(user) {
+    return httpClient.put(`/users/${user.id}`, user);
+  }
+
+  changePassword(data) {
+    return httpClient.put(`/users/password`, data);
+  }
 }
 
 export default new UserService();
